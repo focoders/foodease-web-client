@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div>
-      <h1 className="text-m-h1 ">FOODEASE</h1>
+      <h1 className="text-m-h1 text-primary font-extrabold">FOODEASE</h1>
       <div className="grid grid-cols-11 grid-rows-5">
         <div className="flex justify-center items-center bg-primary">
           primary
