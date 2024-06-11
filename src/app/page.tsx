@@ -1,8 +1,38 @@
+import Navbar from "@/components/Navbar/Navbar";
+import Image from "next/image";
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-m-h1 text-primary font-extrabold">FoodEase</h1>
-      <div className="grid grid-cols-11 grid-rows-5">
+    <main>
+      <Navbar></Navbar>
+      {/* <h1 className="text-m-h1 text-primary font-extrabold">FoodEase</h1> */}
+      <div className="ml-20 mt-40 bg-scroll bg-[url(/img/pretty-sombrero-sauces 1.png)]">
+
+
+        <div className="w-full text-black text-6xl font-bold leading-tight break-words">
+          EAT WELL, SPEND LESS:
+        </div>
+        <div className="w-full text-black text-6xl font-bold leading-tight break-words">
+        AFFORDABLE DINING AT 
+        </div>
+        <div className="w-full text-black text-6xl font-bold leading-tight break-words">
+          YOUR FINGERTIPS
+        </div>
+
+        <div className="w-[801px] mt-5 text-black/opacity-70 text-lg font-normal font-['Nunito Sans'] leading-[25.20px]">
+          Find your favorite meals at prices that break the bank. Start your journey to budget-friendly dining today!
+        </div>
+
+        <div className="w-[205px] h-[54px] px-6 py-4 mt-5 bg-teal-700 rounded-lg justify-center items-center gap-2.5 inline-flex">
+          <div className="text-white text-lg font-bold font-['Nunito Sans'] leading-snug">Order Now</div>
+        </div>
+
+        {/* <Image src="/img/pretty-sombrero-sauces 1.png" alt="pretty-sombrero-sauces" fill={true}/> */}
+        
+      </div>
+
+     
+      {/* <div className="grid grid-cols-11 grid-rows-5">
         <div className="flex justify-center items-center bg-primary">
           primary
         </div>
@@ -136,7 +166,7 @@ export default function Home() {
           100
         </div>
         <div className="flex justify-center items-center bg-danger-50">50</div>
-      </div>
-    </div>
+      </div> */}
+    </main>
   );
 }
