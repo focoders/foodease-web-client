@@ -1,11 +1,14 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { IoMdSearch, IoMdCart } from "react-icons/io";
+import { IoPersonCircleSharp } from "react-icons/io5";
 
 export default function Navbar() {
   return (
-    <nav className="bg-primary-50 py-4">
-      <div className="container mx-auto flex items-center justify-between">
+    <nav className="flex bg-white  shadow-md">
+      <div className="container mx-auto flex items-center justify-between w-[80%]">
         <Link href="/">
-          <p className="text-xl font-bold ml-10">FoodEase</p>
+          <Image src='../../logos/5.svg' alt="logos" width={100} height={100}/>
         </Link>
         <div className="hidden md:flex items-center space-x-8">
           <Link href="/products">
@@ -18,52 +21,23 @@ export default function Navbar() {
             <p className="hover:underline">About Us</p>
           </Link>
         </div>
-        <div className="flex items-center mr-20">
-          <div className="relative mr-20">
+        <div className="flex items-center gap-8">
+          <div className="flex items-center border border-gray-300 px-4 py-1 bg-[#f0f0f0] rounded-full">
+            <div className="flex text-xl text-[#323232] opacity-50">
+              <IoMdSearch />
+            </div>
             <input
               type="text"
               placeholder="Search for products..."
-              className="w-96 px-3 py-2 rounded-md border border-gray-300 pl-10"
+              className="flex items-center w-[560px] px-3 py-2 bg-[#f0f0f0] rounded-full border-0 outline-none"
             />
-            <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-600"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
           </div>
           <div className="flex items-center">
-            <button className="p-2 rounded-md bg-gray-200">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-600"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path d="M3 3h2l.4 2M7 13h10l4 2H5.4M7 13l-2.4 2L5.4 13" />
-              </svg>
+            <button className="ml-2 p-2 text-[#323232] text-d-h4">
+              <IoMdCart/>
             </button>
-            <button className="ml-2 p-2 rounded-md bg-gray-200">
-              <svg
-              xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-600"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            <button className="ml-2 p-2 text-[#323232] text-d-h4">
+              <IoPersonCircleSharp/>
             </button>
           </div>
         </div>

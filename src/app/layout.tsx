@@ -15,12 +15,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const [state, setState] = useState(0)
   return (
     <html lang="en">
-      <body className={nunito_sans.className}>
-      <Navbar></Navbar>
-      {children}</body>
+      <body className={nunito_sans.className }>
+        <div className="absolute w-[100%]">
+          <Navbar></Navbar>
+        </div>
+          {children}
+      </body>
     </html>
   )
 }
