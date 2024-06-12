@@ -26,7 +26,8 @@ function ProductCard(props: ProductCardProps) {
   } = props;
 
   const handleDetailProduct = (productId: string) => {
-    router.push(`/user/product/${productId}`);
+    const currentPath = window.location.pathname
+    router.push( `${currentPath}/product/${productId}`);
   };
 
   const Star = <path d="M440 60l120 336h320L618 592l94 348-272-208-272 208 94-348L0 396h320L440 60" />
@@ -54,10 +55,10 @@ function ProductCard(props: ProductCardProps) {
             {productName}
           </p>
           <div className="flex flex-col gap-1.5">
-            <p className="text-m-h3 text-success font-bold text-success-main">
+            <p className="text-m-h3 text-success font-bold">
               Rp{salePrice}
             </p>
-            <p className="text-bodytext text-danger-600 font-bold text-m-h5 line-through ">
+            <p className=" text-danger-600 font-bold text-m-h5 line-through ">
               Rp{originPrice}
             </p>
           </div>
@@ -66,7 +67,7 @@ function ProductCard(props: ProductCardProps) {
           </div>
           <div className="flex w-full items-center gap-2 text-m-b2">
             <div className="flex w-[70%]">
-              <Rating readOnly value={rating} itemStyles={customStyles} className="text-blue-100"/>
+              <Rating readOnly value={rating} itemStyles={customStyles}/>
             </div>
             <div className="flex">{rating}/5</div>
           </div>
