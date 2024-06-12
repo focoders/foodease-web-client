@@ -1,12 +1,9 @@
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
-      <Navbar></Navbar>
       {/* <h1 className="text-m-h1 text-primary font-extrabold">FoodEase</h1> */}
       <section className="py-[10px] bg-[url('/img/hero.png')] h-screen bg-right">
 
@@ -34,7 +31,6 @@ export default function Home() {
         {/* <Image src="/img/pretty-sombrero-sauces 1.png" alt="pretty-sombrero-sauces" fill={true}/> */}
         
      
-      {/* <Footer></Footer> */}
     </main>
   );
 }
