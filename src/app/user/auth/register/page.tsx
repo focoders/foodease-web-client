@@ -21,7 +21,7 @@ const UserLoginPage: React.FC<{}> = () => {
   const initialValues: CustomerLoginSchema = { email: '', password: '' }
   return (
     <div className="max-w-[100vw] lg:max-h-screen overflow-hidden">
-      <div className="flex justify-center mx-auto w-[80%] lg:w-[28vw] min-h-screen mt-20 lg:mt-12">
+      <div className="flex justify-center mx-auto w-[80%] lg:w-[28vw] max-h-screen mt-12">
         <div className="flex flex-col gap-8 items-center justify-center w-full ">
           <div>
             <h1 className="text-m-h1 lg:text-d-h3 font-bold">Customer Sign Up</h1>

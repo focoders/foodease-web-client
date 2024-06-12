@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito_sans.className }>
-        <div className="absolute w-[100%]">
+        <div className="flex w-[100%]">
           <Navbar></Navbar>
         </div>
           {children}
