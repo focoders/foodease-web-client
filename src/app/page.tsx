@@ -5,11 +5,10 @@ export default function Home() {
   return (
     <main>
       {/* <h1 className="text-m-h1 text-primary font-extrabold">FoodEase</h1> */}
-      <section className="py-[10px] bg-[url('/img/hero.png')] h-screen bg-right">
+      <section className="py-[10px] bg-[url('/img/hero.png')] min-h-screen bg-right bg-cover">
 
-        <div className="ml-20 pt-48 bg-scroll">
+        <div className="pt-48 bg-s container mx-auto flex justify-between w-[80%] gap-12">
         
-       
           <div className="basis-1/2 lg:px-16">
           
             <div className="w-[797px] text-black text-[56px] font-black font-['Nunito Sans'] leading-[61.60px]">EAT WELL, SPEND LESS: AFFORDABLE DINING AT YOUR FINGERTIPS</div>
@@ -27,10 +26,32 @@ export default function Home() {
         </div>
       </section>
       
-          
-        {/* <Image src="/img/pretty-sombrero-sauces 1.png" alt="pretty-sombrero-sauces" fill={true}/> */}
+      <section className="flex-row w-[100%] mx-auto bg-green-900">
+  <div className="w-full h-auto flex flex-wrap justify-center items-center gap-24 py-6">
+    <div className="flex justify-center items-center w-1/7 p-2">
+      <img className="w-full h-auto max-w-[80px] md:max-w-[100px]" src="/img/mitra/mitra1.png" alt="Mitra 1" />
+    </div>
+    <div className="flex justify-center items-center w-1/7 p-2">
+      <img className="w-full h-auto max-w-[80px] md:max-w-[100px]" src="/img/mitra/mitra2.png" alt="Mitra 2" />
+    </div>
+    <div className="flex justify-center items-center w-1/7 p-2">
+      <img className="w-full h-auto max-w-[80px] md:max-w-[100px]" src="/img/mitra/mitra3.png" alt="Mitra 3" />
+    </div>
+    <div className="flex justify-center items-center w-1/7 p-2">
+      <img className="w-full h-auto max-w-[80px] md:max-w-[100px]" src="/img/mitra/mitra4.png" alt="Mitra 4" />
+    </div>
+    <div className="flex justify-center items-center w-1/7 p-2">
+      <img className="w-full h-auto max-w-[80px] md:max-w-[100px]" src="/img/mitra/mitra5.png" alt="Mitra 5" />
+    </div>
+    <div className="flex justify-center items-center w-1/7 p-2">
+      <img className="w-full h-auto max-w-[80px] md:max-w-[100px]" src="/img/mitra/mitra6.png" alt="Mitra 6" />
+    </div>
+  </div>
+</section>
+
+
+      {/* <Image src="/img/pretty-sombrero-sauces 1.png" alt="pretty-sombrero-sauces" fill={true}/> */}
         
-     
     </main>
   );
 }
