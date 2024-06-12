@@ -17,7 +17,7 @@ interface CustomerLoginSchema {
   password: string;
 }
 
-const UserLoginPage: React.FC<{}> = () => {
+const UserRegisterPage: React.FC<{}> = () => {
   const initialValues: CustomerLoginSchema = { email: '', password: '' }
   return (
     <div className="max-w-[100vw] lg:max-h-screen overflow-hidden">
@@ -66,10 +66,7 @@ const UserLoginPage: React.FC<{}> = () => {
                     <IoEye/>
                   </span>
                 </div>
-                <div className="flex justify-between ">
-                  <div><p className="text-m-b2">Remember Me</p></div>
-                  <div><p className="text-m-b2">Forgot password?</p></div>
-                </div>
+                
                 <ButtonPrimaryEnable text="Login"/>
               </Form>
             </Formik>
@@ -82,4 +79,4 @@ const UserLoginPage: React.FC<{}> = () => {
   );
 }
 
-export default UserLoginPage;
+export default UserRegisterPage;
