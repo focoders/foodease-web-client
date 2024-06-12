@@ -16,9 +16,9 @@ const customStyles = {
 
 export default function DetailPage({ params }: any) {
   return (
-    <div className="flex w-[80%] justify-center my-11 mx-auto min-h-screen lg:-my-11">
-      <div className="flex flex-col w-full max-h-min items-center gap-6 lg:flex-row lg:gap-16">
-        <div className="flex relative w-[320px] h-[240px] rounded-md border-[1px] border-[#D2D2D2] shadow-md lg:w-[520px] lg:h-[410px] lg:basis-1/2">
+    <div className="flex w-[80%] justify-center my-12 mx-auto h-max ">
+      <div className="flex flex-col w-full h-min items-center gap-6 lg:flex-row lg:gap-16">
+        <div className="flex relative w-[320px] h-[240px] rounded-md border-[1px] border-[#D2D2D2] shadow-md lg:w-[520px] lg:h-[410px] lg:basis-1/2 lg:self-start">
           <Image
             src={"https://placehold.co/600x400?text=Product+Image"}
             alt="Product Image"
@@ -26,15 +26,15 @@ export default function DetailPage({ params }: any) {
             className="flex object-cover object-center rounded-2xl p-3"
           />
         </div>
-        <div className="flex flex-col gap-6 lg:basis-1/2 lg:gap-4">
-          <div className="flex justify-between w-full py-4 lg:flex-col lg:gap-4">
+        <div className="flex flex-col gap-6 lg:basis-1/2 lg:gap-4 lg:items-center">
+          <div className="flex justify-between w-full lg:flex-col lg:gap-4">
             <div className="flex flex-col w-full gap-2.5 ">
               <h1 className="text-m-h1 font-bold line-clamp-2 w-[90%] lg:text-d-h2">
                 Product Name
               </h1>
-              <p className="text-m-b1 lg:textdb1">Store Name</p>
+              <p className="text-m-b1 lg:text-d-b1">Store Name</p>
               <div className="flex gap-2 w-full items-center text-m-b1">
-                <div className="flex w-[20%]">
+                <div className="flex w-[40%] lg:w-[20%]">
                   <Rating readOnly value={4.5} itemStyles={customStyles} />
                 </div>
                 <p>4.5/5</p>
@@ -46,6 +46,9 @@ export default function DetailPage({ params }: any) {
                 Rp15000
               </p>
             </div>
+          </div>
+          <div className="flex justify-start items-start text-left w-full">
+            <p className="text-m-b2 font-bold lg:text-d-b2">Consumable time until <span className="font-bold text-danger-600">12/12/2024 19.00</span></p>
           </div>
           <div className="flex flex-col gap-2.5">
             <p className="text-m-h5 font-bold">Description:</p>
