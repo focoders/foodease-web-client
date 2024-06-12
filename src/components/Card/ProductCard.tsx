@@ -51,25 +51,25 @@ function ProductCard(props: ProductCardProps) {
           />
         </div>
         <div className="flex flex-col w-min gap-[6px] text-left p-2 ">
-          <p className="text-m-h4 font-bold text-black truncate ...">
+          <p className="text-m-h4 font-bold text-black truncate ... lg:text-d-h4">
             {productName}
           </p>
           <div className="flex flex-col gap-1.5">
-            <p className="text-m-h3 text-success font-bold">
+            <p className="text-m-h3 text-success font-bold lg:text-d-h3">
               Rp{salePrice}
             </p>
-            <p className=" text-danger-600 font-bold text-m-h5 line-through ">
+            <p className=" text-danger-600 font-bold text-m-h5 line-through lg:text-d-h5">
               Rp{originPrice}
             </p>
           </div>
           <div className="flex gap-1.5 items-start overflow-hidden">
-            <p className="text-black text-m-b2 line-clamp-2">{location}</p>
+            <p className="text-black text-m-b2 line-clamp-2 lg:text-d-b2">{location}</p>
           </div>
-          <div className="flex w-full items-center gap-2 text-m-b2">
-            <div className="flex w-[70%]">
+          <div className="flex w-full items-center gap-2 text-m-b2 lg:text-d-b2">
+            <div className="flex lg:w-[50%] ">
               <Rating readOnly value={rating} itemStyles={customStyles}/>
             </div>
-            <div className="flex">{rating}/5</div>
+            <div className="flex items-center">{rating}/5</div>
           </div>
         </div>
       </div>
