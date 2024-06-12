@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
       <Navbar></Navbar>
       {/* <h1 className="text-m-h1 text-primary font-extrabold">FoodEase</h1> */}
-      <section className="py-[10px] bg-[url('/img/hero.png')] h-screen">
+      <section className="py-[10px] bg-[url('/img/hero.png')] h-screen bg-right">
 
         <div className="ml-20 pt-48 bg-scroll">
         
@@ -20,9 +21,9 @@ export default function Home() {
               Find your favorite meals at prices that break the bank. Start your journey to budget-friendly dining today!
               </div>
 
-              <div className="w-[205px] h-[54px] px-6 py-4 mt-5 bg-teal-700 rounded-lg justify-center items-center gap-2.5 inline-flex">
+              <Link href="/order" className="w-[205px] h-[54px] px-6 py-4 mt-5 bg-teal-700 rounded-lg justify-center items-center gap-2.5 inline-flex">
                 <div className="text-white text-lg font-bold font-['Nunito Sans'] leading-snug">Order Now</div>
-              </div>
+              </Link>
           
           </div>
       
