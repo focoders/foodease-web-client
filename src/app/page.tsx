@@ -50,10 +50,9 @@ import ProductCard from "@/components/ProductPublicCard";
 
         
         <section className='flex flex-wrap justify-center p-4 lg:p-12'>
-        <div className="flex justify-center items-center h-full p-4 md:p-8 text-black text-3xl sm:text-4xl md:text-5xl font-black font-['Nunito Sans'] leading-tight sm:leading-snug md:leading-[57.60px] mb-4 sm:mb-6 md:mb-[45px]">
-  READY TO EAT
-</div>
-
+          <div className="w-full flex justify-center items-center h-full p-4 md:p-8 text-black text-3xl sm:text-4xl md:text-5xl font-black font-['Nunito Sans'] leading-tight sm:leading-snug md:leading-[57.60px] mb-4 sm:mb-6 md:mb-[45px]">
+            READY TO EAT
+            </div>
               <div className='grid gap-2 max-w-max gap-y-6 grid-cols-2 lg:grid-cols-4 lg:gap-4 '>
                 <ProductCard productId='121' productName='Nasi Ayam Geprek' originPrice='25000' salePrice='15000' location='Juan Store' image_url={'/img/menu/nasiayamgeprek.png'} rating={4.5}/>
                 <ProductCard productId='121' productName='Nasi Goreng' originPrice='25000' salePrice='10000' location='Juan Store' image_url={'/img/menu/nasigoreng.png'} rating={4.5}/>
