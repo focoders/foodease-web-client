@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ProductCard from "@/components/ProductPublicCard";
+import ReviewSlider from "@/components/Card/ReviewSlider";
 
   export default function Home() {
     return (
@@ -64,7 +65,16 @@ import ProductCard from "@/components/ProductPublicCard";
                 <ProductCard productId='121' productName='Nasi Ayam Geprek' originPrice='25000' salePrice='15000' location='Juan Store' image_url={'/img/menu/nasiayamgeprek2.png'} rating={4.5}/>
               </div>
         </section>
-        
+                
+        <section className="w-[100%] mx-auto flex flex-col py-8 px-4 md:px-16 text-black text-center">
+        <div className="text-3xl sm:text-4xl md:text-5xl font-black font-['Nunito Sans'] leading-tight sm:leading-snug md:leading-[57.60px] mb-4 sm:mb-6 md:mb-8">
+          OUR HAPPY CUSTOMER
+        </div>
+        <div className="w-full flex justify-center items-center gap-12 px-4 md:px-16">
+          <ReviewSlider/> {/* Gunakan komponen ReviewSlider */}
+        </div>
+      </section>
+
       </main>
     );
   }
