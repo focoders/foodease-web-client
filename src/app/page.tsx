@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import ProductCard from "@/components/ProductPublicCard";
 import ReviewSlider from "@/components/Card/ReviewSlider";
+import Footer from "@/components/Footer";
 
   export default function Home() {
     return (
@@ -74,7 +75,7 @@ import ReviewSlider from "@/components/Card/ReviewSlider";
           <ReviewSlider/> {/* Gunakan komponen ReviewSlider */}
         </div>
       </section>
-
+      <Footer />
       </main>
     );
   }
