@@ -1,6 +1,14 @@
+"use client"
+import { useRouter } from "next/navigation";
 import { CiCircleRemove } from "react-icons/ci";
 
 export default function CartPage() {
+    const router = useRouter();
+
+    const handleNextClick = () => {
+        router.push('/user/product/checkout');
+    };
+
     return (
         <div className="min-h-screen bg-white flex flex-col items-center p-4">
             <div className="w-full max-w-7xl">
@@ -12,7 +20,6 @@ export default function CartPage() {
                 </div>
                 <div className="border-t border-gray-300 my-6"></div>
                 <div className="flex flex-col gap-6 mt-6">
-                
                     {/* Product 1 */}
                     <div className="grid grid-cols-12 items-center bg-gray-100 p-4 rounded-lg shadow-md relative">
                         <div className="col-span-5 flex items-center">
@@ -65,7 +72,7 @@ export default function CartPage() {
                             <div className="text-3xl font-bold">Rp. 23.000</div>
                         </div>
                         <div className="flex justify-center mt-6">
-                            <button className="bg-teal-700 text-white text-lg font-bold py-3 w-full rounded-lg">Next</button>
+                            <button onClick={handleNextClick} className="bg-teal-700 text-white text-lg font-bold py-3 w-full rounded-lg">Next</button>
                         </div>
                     </div>
                 </div>
