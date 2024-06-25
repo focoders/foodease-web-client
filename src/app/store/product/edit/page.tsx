@@ -4,32 +4,22 @@ export default function UserProfilePage() {
   return (
     <div className="w-full min-h-screen bg-gray-100 flex flex-col lg:flex-row">
         
+      {/* Sidebar */}
       <div className="w-full lg:w-1/5 bg-white shadow-lg flex flex-col">
-        <div className="py-6 px-4 border-b border-emerald-200 flex flex-col items-start">
-          <div className="flex items-center gap-2.5 py-1">
-            <MdOutlineStorefront className="text-neutral-400" size={24} />
-            <div className="text-neutral-400 text-base font-normal font-['Nunito Sans'] leading-snug">Shop Profile</div>
-          </div>
-        </div>
-        <div className="py-6 px-4 border-b border-emerald-200 flex flex-col items-start">
-          <div className="flex items-center gap-2.5 py-1">
-            <MdOutlineShoppingBasket className="text-neutral-400" size={24} />
-            <div className="text-neutral-400 text-base font-normal font-['Nunito Sans'] leading-snug">My Products</div>
-          </div>
-        </div>
-        <div className="py-6 px-4 border-b border-emerald-200 flex flex-col items-start">
-          <div className="flex items-center gap-2.5 py-1">
-            <MdAddRoad className="text-neutral-400" size={24} />
-            <div className="text-neutral-400 text-base font-normal font-['Nunito Sans'] leading-snug">Add Products</div>
-          </div>
-        </div>
-        <div className="py-6 px-4 border-b border-emerald-200 flex flex-col items-start">
-          <div className="flex items-center gap-2.5 py-1">
-            <MdListAlt className="text-neutral-400" size={24} />
-            <div className="text-neutral-400 text-base font-normal font-['Nunito Sans'] leading-snug">My Orders</div>
-          </div>
-        </div>
-      </div>
+                {[
+                    { icon: MdOutlineStorefront, label: "Shop Profile" },
+                    { icon: MdOutlineShoppingBasket, label: "My Products" },
+                    { icon: MdAddRoad, label: "Add Products" },
+                    { icon: MdListAlt, label: "My Orders" }
+                ].map((item, index) => (
+                    <div key={index} className="py-6 px-4 border-b border-emerald-200 flex flex-col items-start">
+                        <div className="flex items-center gap-2.5 py-1">
+                            <item.icon className="text-neutral-400" size={24} />
+                            <div className="text-neutral-400 text-base font-normal font-['Nunito Sans'] leading-snug">{item.label}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
       
       <div className="flex-1 p-6 lg:p-12 bg-gray-100">
         <div className="text-black text-2xl font-bold font-['Nunito Sans'] mb-8 lg:mb-12 lg:ml-12">Edit Products</div>
