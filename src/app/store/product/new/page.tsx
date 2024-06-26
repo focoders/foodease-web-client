@@ -1,6 +1,39 @@
+"use client"
+import { addNewProduct } from "@/app/services/ProductService";
+import { useState } from "react";
 import { MdOutlineStorefront, MdOutlineShoppingBasket, MdAddRoad, MdListAlt } from "react-icons/md";
 
+interface FormData {
+    product_name: string;
+    description: string;
+    price_before: number;
+    price_after: number;
+    production_time: string;
+    expired_time: string;
+    stock: number;
+    category_slug: string;
+    image_id: null | string;
+}
+
 export default function UserProfilePage() {
+
+  const handleSubmit = async( event: React.FormEvent<HTMLFormElement> ) => {
+    event.preventDefault()
+    const productInfo: FormData = {
+      product_name: event.currentTarget.product_name.value,
+      description: event.currentTarget.description.value,
+      price_before: parseInt(event.currentTarget.price_before.value),
+      price_after: parseInt(event.currentTarget.price_after.value),
+      production_time: event.currentTarget.production_time.value,
+      expired_time: event.currentTarget.expired_time.value,
+      stock: parseInt(event.currentTarget.stock.value),
+      category_slug: event.currentTarget.category_slug.value,
+      image_id: null
+    }
+    const res = await addNewProduct(productInfo)
+    // console.log(productInfo)
+  }
+
   return (
     <div className="w-full min-h-screen bg-gray-100 flex flex-col lg:flex-row">
         
@@ -29,51 +62,59 @@ export default function UserProfilePage() {
               <img className="rounded-[7px]" src="https://via.placeholder.com/186x156" alt="Product" />
           
             <div className="w-full max-w-3xl flex flex-wrap gap-6">
-              <div className="flex-1 flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Product Name</label>
-                <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="Chicken Fried Rice" />
-                <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., Chicken Fried Rice</div>
-              </div>
-              <div className="w-full flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Product Description</label>
-                <textarea className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300 h-[148px]" placeholder="Fried rice with premium condiments, and an asian-styled spices." />
-                <div className="text-right text-neutral-400 text-xs font-normal font-['Nunito Sans'] leading-none">0/100</div>
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Category</label>
-                <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="Indonesian food" />
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Production Time</label>
-                <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="09.00" />
-                <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 09.00</div>
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Product Expired Estimation</label>
-                <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="18.00" />
-                <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 18.00</div>
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Product Price After</label>
-                <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="15000" />
-                <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 15000</div>
-              </div>
-              <div className="flex-1 flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Product Price Before</label>
-                <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="25000" />
-                <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 25000</div>
-              </div>
-              <div className="w-full flex flex-col gap-1">
-                <label className="text-black text-base font-normal font-['Nunito Sans']">Upload Product Image</label>
-                <div className="flex justify-center items-center gap-2.5">
-                  <input type="file" className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" />
+              <form onSubmit={handleSubmit}>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Product Name</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="Chicken Fried Rice" id="product_name" name="product_name" />
+                  <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., Chicken Fried Rice</div>
                 </div>
-              </div>
-              <div className="w-full flex justify-center">
-                <button className="w-full max-w-xs px-6 py-4 bg-teal-700 rounded-lg text-white text-lg font-bold font-['Nunito Sans'] mt-6 lg:mt-0">
-                  Add Product
-                </button>
-              </div>
+                <div className="w-full flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Product Description</label>
+                  <textarea className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300 h-[148px]" placeholder="Fried rice with premium condiments, and an asian-styled spices." id="description" name="description"/>
+                  <div className="text-right text-neutral-400 text-xs font-normal font-['Nunito Sans'] leading-none">0/100</div>
+                </div>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Category</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="Indonesian food" id="category_slug" name="category_slug"/>
+                </div>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Production Time</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="09.00" id="production_time" name="production_time"/>
+                  <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 09.00</div>
+                </div>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Product Expired Estimation</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="18.00" id="expired_time" name="expired_time"/>
+                  <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 18.00</div>
+                </div>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Product Price After</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" type="number" placeholder="15000" id="price_after" name="price_after"/>
+                  <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 15000</div>
+                </div>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Product Price Before</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" type="number" placeholder="25000" id="price_before" name="price_before"/>
+                  <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g., 25000</div>
+                </div>
+                <div className="flex-1 flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Product Stock</label>
+                  <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="12" id="stock" name="stock"/>
+                  <div className="text-neutral-500 text-base font-normal font-['Nunito Sans'] leading-snug">e.g. 12</div>
+                </div>
+                <div className="w-full flex flex-col gap-1">
+                  <label className="text-black text-base font-normal font-['Nunito Sans']">Upload Product Image</label>
+                  <div className="flex justify-center items-center gap-2.5">
+                    <input type="file" className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" />
+                  </div>
+                </div>
+                <div className="w-full flex justify-center">
+                  <button type="submit" className="w-full max-w-xs px-6 py-4 bg-teal-700 rounded-lg text-white text-lg font-bold font-['Nunito Sans'] mt-6 lg:mt-0">
+                    Add Product
+                  </button>
+                </div>
+                
+              </form>
             </div>
           </div>
         </div>
