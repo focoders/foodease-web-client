@@ -57,7 +57,7 @@ export default function CheckoutPage() {
                         <div className="text-3xl font-bold">Rp. 23.000</div>
                     </div>
                     <div className="flex justify-center mt-6">
-                        <button className="bg-teal-700 text-white text-lg font-bold py-3 w-full rounded-lg">Checkout Now</button>
+                        <button className="bg-primary-600 text-white text-lg font-bold py-3 w-full rounded-lg">Checkout Now</button>
                     </div>
                 </div>
             </div>

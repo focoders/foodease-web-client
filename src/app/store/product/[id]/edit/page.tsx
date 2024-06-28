@@ -56,7 +56,7 @@ export default function UserProfilePage() {
                 <input className="p-2.5 bg-neutral-100 rounded-lg border border-neutral-300" placeholder="25000" />
               </div>
               <div className="w-full flex justify-center">
-                <button className="w-full max-w-xs px-6 py-4 bg-teal-700 rounded-lg text-white text-lg font-bold font-['Nunito Sans'] mt-6 lg:mt-0">
+                <button className="w-full max-w-xs px-6 py-4 bg-primary-600 rounded-lg text-white text-lg font-bold font-['Nunito Sans'] mt-6 lg:mt-0">
                   Edit Product
                 </button>
               </div>

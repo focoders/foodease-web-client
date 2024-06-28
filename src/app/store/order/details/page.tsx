@@ -42,7 +42,7 @@ export default function ProductDetails() {
                                     className="flex-grow bg-transparent outline-none text-black/opacity-40 text-base font-normal font-['Nunito Sans'] leading-snug"
                                 />
                             </div>
-                            <button className="px-6 py-2 rounded-lg border border-teal-700 flex items-center justify-center text-teal-700 text-lg font-bold font-['Nunito Sans'] leading-snug">Apply</button>
+                            <button className="px-6 py-2 rounded-lg border border-primary-600 flex items-center justify-center text-primary-600 text-lg font-bold font-['Nunito Sans'] leading-snug">Apply</button>
                         </div>
 
                         {/* Order Details */}

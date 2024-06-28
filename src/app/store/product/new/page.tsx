@@ -106,7 +106,7 @@ export default function UserProfilePage() {
                     </div>
                   </div>
                   <div className="w-full flex justify-center">
-                    <button type="submit" className="w-full max-w-xs px-6 py-4 bg-teal-700 rounded-lg text-white text-lg font-bold font-['Nunito Sans'] mt-6 lg:mt-0">
+                    <button type="submit" className="w-full max-w-xs px-6 py-4 bg-primary-600 rounded-lg text-white text-lg font-bold font-['Nunito Sans'] mt-6 lg:mt-0">
                       Add Product
                     </button>
                   </div>

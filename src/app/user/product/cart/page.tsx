@@ -72,7 +72,7 @@ export default function CartPage() {
                             <div className="text-3xl font-bold">Rp. 23.000</div>
                         </div>
                         <div className="flex justify-center mt-6">
-                            <button onClick={handleNextClick} className="bg-teal-700 text-white text-lg font-bold py-3 w-full rounded-lg">Next</button>
+                            <button onClick={handleNextClick} className="bg-primary-600 text-white text-lg font-bold py-3 w-full rounded-lg">Next</button>
                         </div>
                     </div>
                 </div>
