@@ -53,7 +53,7 @@ export default function DetailPage({ params }: any) {
   
   useEffect(() => {
     fetchProductDetails();
-  });
+  }, [fetchProductDetails]);
 
   return (
     <div className="flex w-[80%] justify-center my-12 mx-auto h-max ">
