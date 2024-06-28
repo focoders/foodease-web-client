@@ -33,3 +33,18 @@ export async function addNewProduct( newProductData: any ){
         return null
     }
 }
+
+export async function getNearestProductFromUserWithoutQuery(){
+    try {
+        const authToken = await getAuthToken()
+        const response = await apiClient.get<ResponseSchema<any>>("/product?distance=20000&limit=30&offset=0", {
+            headers: {
+                Authorization: `Bearer ${authToken}`
+            }
+        })
+        return response.data.data
+    } catch (error) {
+        console.error(error)
+        return null
+    }
+}

@@ -9,7 +9,7 @@ interface ProductCardProps {
   originPrice: string;
   salePrice: string;
   location: string;
-  image_url: string | undefined;
+  image_url: string | null;
   rating: number;
 }
 
@@ -50,27 +50,30 @@ function ProductCard(props: ProductCardProps) {
             className="object-cover mx-auto rounded-md lg:w-[268px] lg:h-[200px]"
           />
         </div>
-        <div className="flex flex-col w-min gap-[6px] text-left p-2 ">
-          <p className="text-m-h4 font-bold text-black truncate ... lg:text-d-h4">
-            {productName}
-          </p>
-          <div className="flex flex-col gap-1.5">
-            <p className="text-m-h3 text-success font-bold lg:text-d-h3">
-              Rp{salePrice}
+        <div className="flex mx-auto max-w-[272px]">
+          <div className="flex flex-col gap-[6px] w-full text-left p-2">
+            <p className="text-m-h4 font-bold text-black w-full  line-clamp-1 lg:text-d-h4 ">
+              {productName}
             </p>
-            <p className=" text-danger-600 font-bold text-m-h5 line-through lg:text-d-h5">
-              Rp{originPrice}
-            </p>
-          </div>
-          <div className="flex gap-1.5 items-start overflow-hidden">
-            <p className="text-black text-m-b2 line-clamp-2 lg:text-d-b2">{location}</p>
-          </div>
-          <div className="flex w-full items-center gap-2 text-m-b2 lg:text-d-b2">
-            <div className="flex lg:w-[50%] ">
-              <Rating readOnly value={rating} itemStyles={customStyles}/>
+            <div className="flex flex-col gap-1.5">
+              <p className="text-m-h3 text-success font-bold lg:text-d-h3">
+                Rp{salePrice}
+              </p>
+              <p className=" text-danger-600 font-bold text-m-h5 line-through lg:text-d-h5">
+                Rp{originPrice}
+              </p>
             </div>
-            <div className="flex items-center">{rating}/5</div>
+            <div className="flex gap-1.5 items-start overflow-hidden">
+              <p className="text-black text-m-b2 line-clamp-2 lg:text-d-b2">{location}</p>
+            </div>
+            <div className="flex w-full items-center gap-2 text-m-b2 lg:text-d-b2">
+              <div className="flex lg:w-[50%] ">
+                <Rating readOnly value={rating} itemStyles={customStyles}/>
+              </div>
+              <div className="flex items-center">{rating}/5</div>
+            </div>
           </div>
+
         </div>
       </div>
     </button>
