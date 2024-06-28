@@ -1,12 +1,49 @@
 'use client'
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "@/components/ProductPublicCard";
 import ReviewSlider from "@/components/Card/ReviewSlider";
 import Footer from "@/components/Footer";
+import { getPublicNearestProductWithoutQuery } from "./services/ProductService";
+
+interface IProduct {
+  id: string;
+  product_name: string;
+  description: string;
+  price_before: number;
+  price_after: number;
+  production_time: string;
+  expired_time: string;
+  stock: number;
+  image_id: null;
+  store_name: string;
+  street: string;
+  address_longitude: number;
+  address_latitude: number;
+  address_distance: number;
+  slug: string;
+  category_name: string;
+  updated_at: string;
+  created_at: string;
+}
 
   export default function Home() {
+
+    const [productDisplayed, setProductDisplayed] = useState<IProduct[] | null>(null);
+
+    const getNearestProductWithoutQuery = async () => {
+      const datas = await getPublicNearestProductWithoutQuery();
+      if (datas === undefined ) {
+        setProductDisplayed(null);
+      }
+      setProductDisplayed(datas!);
+    };
+  
+    useEffect(() => {
+      getNearestProductWithoutQuery();
+    }, []);
+
     return (
       <main>
         <section className="py-[10px] bg-[url('/img/hero.png')] min-h-screen bg-right bg-cover">
@@ -51,19 +88,27 @@ import Footer from "@/components/Footer";
         </section>
 
         
-        <section className='flex flex-wrap justify-center p-4 lg:p-12'>
+        <section id="products" className='flex flex-wrap justify-center p-4 lg:p-12'>
           <div className="w-full flex justify-center items-center h-full p-4 md:p-8 text-black text-3xl sm:text-4xl md:text-5xl font-black font-['Nunito Sans'] leading-tight sm:leading-snug md:leading-[57.60px] mb-4 sm:mb-6 md:mb-[45px]">
             READY TO EAT
             </div>
               <div className='grid gap-2 max-w-max gap-y-6 grid-cols-2 lg:grid-cols-4 lg:gap-4 '>
-                <ProductCard productId='121' productName='Nasi Ayam Geprek' originPrice='25000' salePrice='15000' location='Juan Store' image_url={'/img/menu/nasiayamgeprek.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Goreng' originPrice='25000' salePrice='10000' location='Juan Store' image_url={'/img/menu/nasigoreng.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Sate Ayam' originPrice='25000' salePrice='8000' location='Juan Store' image_url={'/img/menu/nasisateayam.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Bebek Rica-rica' originPrice='25000' salePrice='13000' location='Juan Store' image_url={'/img/menu/nasibebekricarica.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Goreng' originPrice='25000' salePrice='10000' location='Juan Store' image_url={'/img/menu/nasigoreng2.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Bebek Rica-rica' originPrice='25000' salePrice='13000' location='Juan Store' image_url={'/img/menu/nasibebekricarica2.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Sate Ayam' originPrice='25000' salePrice='8000' location='Juan Store' image_url={'/img/menu/nasisateayam2.png'} rating={4.5}/>
-                <ProductCard productId='121' productName='Nasi Ayam Geprek' originPrice='25000' salePrice='15000' location='Juan Store' image_url={'/img/menu/nasiayamgeprek2.png'} rating={4.5}/>
+              {(productDisplayed?.length === 0 || !productDisplayed) ? (
+                <div>No Products Found</div>
+                ) : (
+                  productDisplayed?.map((product, index) => (
+                    <ProductCard
+                      key={index}
+                      productId={product.id}
+                      productName={product.product_name}
+                      originPrice={product.price_before.toString()}
+                      salePrice={product.price_after.toString()}
+                      location={product.street}
+                      image_url={product.image_id}
+                      rating={4.5}
+                    />
+                   ))
+                  )}
               </div>
         </section>
                 

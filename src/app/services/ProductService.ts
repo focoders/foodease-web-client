@@ -48,3 +48,28 @@ export async function getNearestProductFromUserWithoutQuery(){
         return null
     }
 }
+
+export async function getPublicNearestProductWithoutQuery(){
+    try {
+        const response = await apiClient.get<ResponseSchema<any>>("/product/public?distance=20000&limit=30&offset=0")
+        return response.data.data
+    } catch (error) {
+        console.error(error)
+        return null
+    }
+}
+
+export async function getProductDetailsById(productId: string){
+    try {
+        const authToken = await getAuthToken()
+        const response = await apiClient.get<ResponseSchema<any>>(`/product/${productId}`, {
+            headers: {
+                Authorization: `Bearer ${authToken}`
+            }
+        })
+        return response.data.data
+    } catch (error) {
+        console.error(error)
+        return null
+    }
+}

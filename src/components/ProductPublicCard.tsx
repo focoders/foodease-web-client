@@ -9,7 +9,7 @@ interface ProductCardProps {
   originPrice: string;
   salePrice: string;
   location: string;
-  image_url: string | undefined;
+  image_url: string | null;
   rating: number;
 }
 

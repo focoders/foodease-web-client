@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Formik,
   FormikHelpers,
@@ -11,8 +11,9 @@ import {
 import { ButtonPrimaryEnable } from "@/components/Button/Button";
 import { IoEye } from "react-icons/io5";
 import Link from "next/link";
+import PopUp from "@/components/PopUp";
 
-interface CustomerLoginSchema {
+interface CustomerRegisterSchema {
   email: string;
   storename: string;
   storeaddress: string;
@@ -20,9 +21,23 @@ interface CustomerLoginSchema {
 }
 
 const StoreRegisterPage: React.FC<{}> = () => {
-  const initialValues: CustomerLoginSchema = { email: "", storename: "", storeaddress: "", storedescription: "" };
+
+  const [isPopUpOpen, setIsAddProductModalOpen] = useState(false);
+
+  const popUpHandler = async () => {
+    setIsAddProductModalOpen(!isPopUpOpen);
+  };
+
+  const initialValues: CustomerRegisterSchema = { email: "", storename: "", storeaddress: "", storedescription: "" };
   return (
     <div className="max-w-[100vw] lg:min-h-screen overflow-hidden">
+
+      <PopUp
+        isOpen={isPopUpOpen}
+        onClose={popUpHandler}
+        message="Your application will be processed. The result of the application will be informed via email."
+      />
+
       <div className="flex flex-col justify-center mx-auto gap-12 w-[80%] min-h-screen mt-12 lg:flex-row lg:gap-12 items-start">
         <div className="flex flex-col justify-center items-center gap-8 lg:basis-1/2">
           <h1 className="text-m-h3 font-bold lg:text-d-h3">Terms and Conditions</h1>
@@ -70,8 +85,7 @@ const StoreRegisterPage: React.FC<{}> = () => {
             <Formik
               initialValues={initialValues}
               onSubmit={(values, actions) => {
-                console.log({ values, actions });
-                alert(JSON.stringify(values, null, 2));
+                popUpHandler()
                 actions.setSubmitting(false);
                 actions.resetForm({
                   values: {
