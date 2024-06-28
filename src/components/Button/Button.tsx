@@ -7,11 +7,49 @@ interface ButtonProps {
   to?: string;
 }
 
+const ButtonInfoEnable: React.FC<ButtonProps> = ({ text, onClick, to }) => {
+  if (to) {
+    return (
+      <Link href={to}>
+        <button className="w-full px-[24px] py-[16px] bg-info-600 rounded-[8px] text-d-h5 font-bold text-white">
+          {text}
+        </button>
+      </Link>
+    );
+  }
+  return (
+    <button
+      onClick={onClick}
+      className="w-full px-[24px] py-[16px] bg-info-600 rounded-[8px] text-d-h5 font-bold text-white"
+    >
+      {text}
+    </button>
+  );
+};
+const ButtonDangerEnable: React.FC<ButtonProps> = ({ text, onClick, to }) => {
+  if (to) {
+    return (
+      <Link href={to}>
+        <button className="w-full px-[24px] py-[16px] bg-danger-600 rounded-[8px] text-d-h5 font-bold text-white">
+          {text}
+        </button>
+      </Link>
+    );
+  }
+  return (
+    <button
+      onClick={onClick}
+      className="w-full px-[24px] py-[16px] bg-danger-600 rounded-[8px] text-d-h5 font-bold text-white"
+    >
+      {text}
+    </button>
+  );
+};
 const ButtonPrimaryEnable: React.FC<ButtonProps> = ({ text, onClick, to }) => {
   if (to) {
     return (
       <Link href={to}>
-        <button className="w-full px-[24px] py-[16px] bg-primary-600 rounded-[8px] text-d-h5 font-bold text-white">
+        <button className="w-full bg-primary-600 rounded-[8px] font-bold text-white px-[12px] py-[8px] lg:px-[24px] lg:py-[16px] text-m-h5 lg:text-d-h5">
           {text}
         </button>
       </Link>
@@ -181,6 +219,8 @@ const ButtonSecondaryPressed: React.FC<ButtonProps> = ({
 
 export {
   ButtonPrimaryEnable,
+  ButtonDangerEnable,
+  ButtonInfoEnable,
   ButtonPrimaryDisable,
   ButtonPrimaryHover,
   ButtonPrimaryPressed,

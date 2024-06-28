@@ -73,3 +73,18 @@ export async function getProductDetailsById(productId: string){
         return null
     }
 }
+
+export async function getAllStoreProducts(){
+    try {
+        const authToken = await getAuthToken()
+        const response = await apiClient.get<ResponseSchema<any>>("/product/store-products", {
+            headers: {
+                Authorization: `Bearer ${authToken}`
+            }
+        })
+        return response.data.data
+    } catch (error) {
+        console.error(error)
+        return null
+    }
+}

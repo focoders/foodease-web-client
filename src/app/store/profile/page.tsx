@@ -1,6 +1,7 @@
 import { MdOutlineStorefront, MdOutlineShoppingBasket, MdAddRoad, MdListAlt } from "react-icons/md";
 
 export default function UserProfilePage() {
+
   return (
     <div className="w-full min-h-screen bg-gray-100 flex flex-col lg:flex-row">
       <div className="w-full lg:w-1/5 bg-white shadow-lg flex flex-col">
